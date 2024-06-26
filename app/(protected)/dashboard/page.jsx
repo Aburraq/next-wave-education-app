@@ -3,6 +3,7 @@ import { CreditScoreDistribution } from '@/components/dashboard/credit-score-dis
 import { DashboardBanner } from '@/components/dashboard/dashboard-banner';
 import { Notifications } from '@/components/dashboard/notifications';
 import { ShortcutLinks } from '@/components/dashboard/shortcut-links';
+import { TeacherDemographics } from '@/components/dashboard/teacher-demographics';
 import { UserInformation } from '@/components/dashboard/user-information';
 import styles from '@/styles/pages/dashboard-page.module.scss';
 
@@ -25,21 +26,23 @@ export default async function DashboardPage() {
                     <Notifications />
                 </div>
             </div>
-            <DashboardBanner fullName={`${session?.user?.name} ${session?.user?.surname}`} />
+            <DashboardBanner
+                fullName={`${session?.user?.name} ${session?.user?.surname}`}
+            />
             <div className={styles.contentContainer}>
                 <div className={styles.contentOne}>
                     <div className={styles.flexItemOne}>
                         {isStudent ? (
                             <>{/* <GradeCards /> */}</>
                         ) : (
-                            <> <CreditScoreDistribution /> </>
+                            <CreditScoreDistribution />
                         )}
                     </div>
                     <div className={styles.flexItemTwo}>
                         {isStudent ? (
                             <>{/* <LessonTeachers /> */}</>
                         ) : (
-                            <>{/* <TeacherDemographics /> */}</>
+                            <TeacherDemographics />
                         )}
                     </div>
                 </div>

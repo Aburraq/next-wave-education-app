@@ -1,0 +1,31 @@
+@use '@/styles/variables' as *;
+.container {
+    height: 100%;
+    width: 100%;
+    background-color: $clr-white;
+    border-radius: $rounded-xl;
+    background-color: $clr-black-lighter;
+    flex: 1;
+}
+.innerContainer {
+    height: 100%;
+    background-color: $clr-purple-lighter;
+    border-radius: $rounded-xl;
+    padding: $padding-sm;
+}
+.text {
+    text-align: center;
+    color: $clr-purple;
+    font-family: $font-modulus;
+    font-size: $font-lg;
+}
+@media screen and (max-width: $screen-3xl) {
+    .text {
+        font-size: $font-md;
+    }
+}
+@media screen and (max-width: $screen-2xl) {
+    .text {
+        font-size: $font-sm;
+    }
+}
