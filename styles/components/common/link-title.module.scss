@@ -1,0 +1,23 @@
+@use '@/styles/variables' as *;
+
+.heading {
+    text-align: center;
+}
+
+.link {
+    text-decoration: none;
+    color: $clr-black;
+    font-family: $font-modulus;
+    text-align: center;
+    margin: $margin-xs 0;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+@media screen and (max-width: $screen-md) {
+    .heading {
+        font-size: $font-lg;
+    }
+}

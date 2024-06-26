@@ -1,3 +1,5 @@
+@use '@/styles/variables' as *;
+
 // ANIMATIONS
 $animation-pulse: pulseAnimation 3s ease-in-out infinite;
 $animation-pulse2: pulse 1.2s infinite;
@@ -7,17 +9,21 @@ $animation-wiggle3: wiggle3 15s infinite linear;
 $animation-orbit-up: orbit 2s linear infinite, up 2s infinite;
 $animation-orbit-down: orbit 2s linear infinite, down 2s infinite;
 $animation-spin: spin 2s linear infinite;
+$animation-rotate1: rotate1 2s linear infinite;	
+$animation-rotate2: rotate2 2s linear infinite;
+$animation-rotate3: rotate3 2s linear infinite;
+$animation-rotate4: rotate4 2s linear infinite;
 
 // KEYFRAMES
 @keyframes pulseAnimation {
     0% {
-        background-color: $clr-black-light;
-    }
-    50% {
         background-color: $clr-black-lighter;
     }
+    50% {
+        background-color: $clr-black-lighter-opacity;
+    }
     100% {
-        background-color: $clr-black-light;
+        background-color: $clr-black-lighter;
     }
 }
 
@@ -175,5 +181,45 @@ $animation-spin: spin 2s linear infinite;
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate1 {
+    from {
+        transform: rotateX(50deg) rotateZ(110deg);
+    }
+
+    to {
+        transform: rotateX(50deg) rotateZ(470deg);
+    }
+}
+
+@keyframes rotate2 {
+    from {
+        transform: rotateX(20deg) rotateY(50deg) rotateZ(20deg);
+    }
+
+    to {
+        transform: rotateX(20deg) rotateY(50deg) rotateZ(380deg);
+    }
+}
+
+@keyframes rotate3 {
+    from {
+        transform: rotateX(40deg) rotateY(130deg) rotateZ(450deg);
+    }
+
+    to {
+        transform: rotateX(40deg) rotateY(130deg) rotateZ(90deg);
+    }
+}
+
+@keyframes rotate4 {
+    from {
+        transform: rotateX(70deg) rotateZ(270deg);
+    }
+
+    to {
+        transform: rotateX(70deg) rotateZ(630deg);
     }
 }
