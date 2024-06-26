@@ -1,0 +1,105 @@
+@use '@/styles/variables' as *;
+
+.container {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    border-radius: $rounded-md;
+    background-color: $clr-black;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: $padding-2xl $padding-3xl;
+    color: $clr-white;
+    flex: 1;
+    z-index: 10;
+    font-family: $font-modulus;
+}
+
+.date {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-sm;
+    font-size: $font-sm;
+    margin-bottom: $margin-lg;
+}
+
+.title {
+    font-size: $font-3xl;
+    margin-bottom: $margin-md;
+}
+
+.description {
+    font-size: $font-lg;
+    margin-bottom: $margin-lg;
+}
+
+.imageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    display: block;
+    filter: invert(1);
+}
+
+@media screen and (max-width: $screen-3xl) {
+    .date {
+        font-size: $font-xs;
+    }
+
+    .title {
+        font-size: $font-2xl;
+    }
+
+    .description {
+        font-size: $font-md;
+        margin-bottom: $margin-md;
+    }
+
+    .imageContainer {
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: $screen-2xl) {
+    .date {
+        font-size: $font-2xs;
+    }
+
+    .title {
+        font-size: $font-xl;
+    }
+
+    .description {
+        font-size: $font-sm;
+        margin-bottom: $margin-sm;
+    }
+}
+
+@media screen and (max-width: $screen-xl) {
+    .title {
+        font-size: $font-lg;
+    }
+
+    .description {
+        font-size: $font-xs;
+        margin-bottom: $margin-sm;
+    }
+
+    .imageContainer {
+        display: none;
+    }
+}
+
+@media screen and (max-width: $screen-md) {
+    .container {
+        flex-direction: column;
+        gap: $gap-md;
+    }
+}
