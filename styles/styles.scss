@@ -1,0 +1,47 @@
+@import 'variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100% !important;
+    min-height: 100% !important;
+    background-color: whitesmoke;
+    font-family: var(--font-roboto), var(--font-modulus) !important;
+}
+
+// SWEETALERT2
+@import 'sweetalert2/src/variables';
+@import 'sweetalert2/src/sweetalert2';
+
+.swal2-confirm {
+    background-color: $clr-success-light !important;
+    color: $clr-success !important;
+    font-weight: 700 !important;
+    width: 100px !important;
+    border: 3px solid $clr-success !important;
+}
+
+.swal2-cancel {
+    background-color: $clr-danger-light !important;
+    color: $clr-danger !important;
+    font-weight: 700 !important;
+    width: 100px !important;
+    border: 3px solid $clr-danger !important;
+}
+
+.swal2-popup {
+    background-color: $clr-danger-light !important;
+    color: $clr-black !important;
+    border: 3px solid $clr-black !important;
+}
+
+.swal2-question {
+    background-color: $clr-danger-light !important;
+    color: $clr-danger !important;
+    border: 3px solid $clr-danger !important;
+}

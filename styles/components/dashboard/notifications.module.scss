@@ -1,0 +1,27 @@
+@use '@/styles/variables' as *;
+
+.container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.icon {
+    color: $clr-black;
+}
+
+.badge {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: -5px;
+    right: -5px;
+    border-radius: $rounded-full;
+    background-color: $clr-danger;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $clr-white;
+    font-size: $font-xs;
+    font-weight: $text-bold;
+}

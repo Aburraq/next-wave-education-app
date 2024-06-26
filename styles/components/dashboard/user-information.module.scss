@@ -1,0 +1,24 @@
+@use '@/styles/variables' as *;
+.container {
+    display: flex;
+    align-items: center;
+    gap: $gap-md;
+}
+.title {
+    font-size: $font-lg;
+    font-weight: $text-light;
+    color: $clr-black;
+    margin-bottom: $margin-xs;
+}
+.type {
+    font-size: $font-sm;
+    font-weight: $text-light;
+    span {
+        &:first-child {
+            margin-right: $margin-xs;
+        }
+        &:last-child {
+            font-weight: $text-bold;
+        }
+    }
+}

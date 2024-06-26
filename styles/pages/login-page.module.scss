@@ -1,0 +1,56 @@
+@use '@/styles/variables' as *;
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-lg;
+}
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-md;
+    margin-bottom: $margin-xs;
+}
+.label {
+    font-size: $font-md;
+    margin-bottom: $margin-xs;
+}
+.input {
+    padding: $padding-md;
+    border-radius: $rounded-md;
+    border: none;
+    background-color: $clr-black-lighter;
+    font-size: $font-md;
+    font-family: $font-modulus;
+    color: $clr-white;
+
+    &:focus {
+        outline: none;
+    }
+
+    &::placeholder {
+        color: $clr-white;
+        opacity: 0.5;
+    }
+}
+
+@media (max-width: $screen-3xl) {
+    .form {
+        gap: $gap-sm;
+    }
+
+    .inputGroup {
+        gap: $gap-sm;
+    }
+
+    .label {
+        font-size: $font-sm;
+        margin-bottom: $margin-xs;
+    }
+
+    .input {
+        padding: $padding-sm;
+        font-size: $font-sm;
+        border-radius: $rounded-sm;
+    }
+}

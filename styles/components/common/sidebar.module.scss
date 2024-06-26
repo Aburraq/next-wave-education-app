@@ -1,0 +1,88 @@
+@use '@/styles/variables' as *;
+
+.container {
+    background: $lineer-gradient-dark;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    border-radius: $rounded-xl;
+}
+
+.avatarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: $padding-md;
+    margin-bottom: $margin-lg;
+}
+
+.avatarInnerContainer {
+    padding: $padding-xl;
+    border-radius: $rounded-xl;
+    background-color: $clr-black-light;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+}
+
+.linksContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.logoutContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    margin-bottom: $margin-md;
+}
+
+@media screen and (max-width: $screen-3xl) {
+    .avatarContainer {
+        padding: $padding-md;
+    }
+
+    .avatarInnerContainer {
+        padding: $padding-md;
+    }
+}
+
+@media screen and (max-width: $screen-lg) {
+    .avatarContainer {
+        padding: $padding-sm;
+    }
+
+    .avatarInnerContainer {
+        padding: $padding-sm;
+    }
+
+    .avatar {
+        width: 30px;
+        height: 30px;
+    }
+
+    .container {
+        max-width: 80px;
+    }
+}
+
+@media screen and (max-width: $screen-sm) {
+    .avatarContainer {
+        padding: calc($padding-xs);
+    }
+
+    .avatarInnerContainer {
+        padding: calc($padding-xs);
+    }
+
+    .container {
+        max-width: 60px !important;
+    }
+}

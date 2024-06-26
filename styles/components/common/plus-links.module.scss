@@ -1,0 +1,53 @@
+@use '@/styles/variables' as *;
+
+.link {
+    position: relative;
+    color: $clr-black;
+    text-decoration: none;
+    font-size: $font-xl;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        color: $clr-orange-dark;
+
+        .plusButton {
+            rotate: 90deg;
+            scale: 1.2;
+
+            .svg {
+                fill: $clr-success;
+            }
+        }
+    }
+}
+
+.plusButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    border: none;
+    background-color: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:active {
+        .svg {
+            stroke: $clr-success-lighter;
+            fill: $clr-success-dark;
+        }
+    }
+}
+
+.svg {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    stroke: $clr-success-lighter;
+    fill: $clr-black-light;
+    transition: 0.5s;
+}

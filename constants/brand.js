@@ -1,0 +1,27 @@
+export const brand = {
+    name: "NextWave",
+    title: "NextWave | Next-Generation Learning Solutions",
+    website: "https://nextwavelearning.vercel.app",
+    description: "Discover NextWave, the leading platform for next-generation learning solutions designed to revolutionize education. With NextWave, streamline academic tracking, enhance student engagement, and simplify administrative tasks. Our innovative approach empowers educators and facilitates immersive learning experiences, ensuring a seamless educational journey for both students and administrators. Experience the future of education with NextWave today.",
+    author: {
+        name:"Burak the Developer",
+        webiste: "...",
+        github: "https://github.com/Aburraq",
+        email: "aliburakkayass@gmail.com",
+    },
+    email: 'info@nextwavelearning.com',
+    github: 'https://github.com/Aburraq',
+    twitter: 'https://twitter.com/nextwavelearning',
+    facebook: 'https://www.facebook.com/nextwavelearning',
+    linkedin: 'https://www.linkedin.com/company/nextwavelearning',
+    instagram: 'https://www.instagram.com/nextwavelearning',
+    youtube: 'https://www.youtube.com/nextwavelearning',
+    pinterest: 'https://www.pinterest.com/nextwavelearning',
+    whatsapp: 'https://wa.me/nextwavelearning',
+    phone: '+1-800-123-4567',
+    fax: '+1-800-123-4567',
+    address: '1234 Main St, New York, NY 10001',
+    country: 'United States',
+    locale: 'en_US',
+
+}

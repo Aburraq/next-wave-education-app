@@ -1,0 +1,40 @@
+@use '@/styles/variables' as *;
+
+.button {
+    padding: $padding-md;
+    border-radius: $rounded-sm;
+    border: none;
+    background-color: $clr-black-light;
+    color: $clr-white;
+    font-size: $font-md;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-family: $font-modulus;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+    gap: $font-md;
+
+    &:hover {
+        background-color: $clr-black;
+    }
+}
+
+.submitting {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: $screen-3xl) {
+    .button {
+        font-size: $font-sm;
+    }
+}
+
+@media (max-width: $screen-md) {
+    .button {
+        padding: $padding-sm;
+    }
+}

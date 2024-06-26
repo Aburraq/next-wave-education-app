@@ -1,0 +1,79 @@
+@use '@/styles/variables' as *;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-md;
+    margin-top: $margin-md;
+    flex: 1;
+}
+
+.topbarContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $gap-md;
+}
+
+.informationContainer {
+    display: flex;
+    gap: $gap-md;
+}
+
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-md;
+}
+
+.contentOne,
+.contentTwo {
+    flex: 1;
+    display: flex;
+    gap: $gap-sm;
+}
+
+.flexItemOne {
+    flex: 1;
+    min-height: 365px;
+}
+
+.flexItemTwo {
+    min-width: 320px;
+    min-height: 365px;
+}
+
+@media screen and (max-width: $screen-lg) {
+    .contentOne {
+        flex-direction: column;
+    }
+
+    .contentTwo {
+        flex-direction: column;
+    }
+
+    .flexItemTwo {
+        min-height: auto;
+    }
+}
+
+@media screen and (max-width: $screen-md) {
+    .topbarContainer {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .informationContainer {
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: $screen-sm) {
+    .flexItemOne {
+        min-height: auto;
+    }
+
+    .flexItemTwo {
+        min-width: 100%;
+    }
+}

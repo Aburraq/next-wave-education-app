@@ -1,0 +1,22 @@
+@use '@/styles/variables' as *;
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+    padding: $padding-2xl;
+    gap: $gap-xl;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: $screen-sm) {
+    .container {
+        padding: $padding-sm;
+        gap: $gap-sm;
+    }
+}
