@@ -3,7 +3,9 @@ import { CreditScoreDistribution } from '@/components/dashboard/credit-score-dis
 import { DashboardBanner } from '@/components/dashboard/dashboard-banner';
 import { Notifications } from '@/components/dashboard/notifications';
 import { ShortcutLinks } from '@/components/dashboard/shortcut-links';
+import { StudentPerformanceScatterPlot } from '@/components/dashboard/student-performance-scatter-plot';
 import { TeacherDemographics } from '@/components/dashboard/teacher-demographics';
+import { TimeSeriesChart } from '@/components/dashboard/time-series-chart';
 import { UserInformation } from '@/components/dashboard/user-information';
 import styles from '@/styles/pages/dashboard-page.module.scss';
 
@@ -51,14 +53,14 @@ export default async function DashboardPage() {
                         {isStudent ? (
                             <>{/* <LessonPrograms /> */}</>
                         ) : (
-                            <>{/* <TimeSeriesChart /> */}</>
+                             <TimeSeriesChart role={role}/> 
                         )}
                     </div>
                     <div className={styles.flexItemTwo}>
                         {isStudent ? (
                             <>{/* <MeetingNotice /> */}</>
                         ) : (
-                            <>{/* <StudentPerformanceScatterPlot /> */}</>
+                             <StudentPerformanceScatterPlot /> 
                         )}
                     </div>
                 </div>
