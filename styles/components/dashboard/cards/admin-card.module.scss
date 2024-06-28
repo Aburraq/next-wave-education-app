@@ -1,0 +1,52 @@
+@use '@/styles/variables' as *;
+
+// ========================= CLASSES =========================
+@import '@/styles/classes/built-in.module.scss';
+@import '@/styles/classes/card-body.module.scss';
+@import '@/styles/classes/card-container.module.scss';
+@import '@/styles/classes/card-header.module.scss';
+@import '@/styles/classes/order-number.module.scss';
+
+.detail {
+    display: flex;
+    justify-content: space-between;
+    background-color: $clr-purple-lighter;
+    padding: $padding-xs $padding-sm;
+    border: $rounded-sm;
+}
+
+.detailLabel {
+    font-size: $font-md;
+    font-weight: bold;
+}
+
+.detailValue {
+    font-size: $font-md;
+    text-align: right;
+}
+
+// ========================= MEDIA QUERIES =========================
+
+@media (max-width: $screen-3xl) {
+    .detailLabel {
+        font-size: $font-sm;
+    }
+
+    .detailValue {
+        font-size: $font-sm;
+    }
+}
+
+@media (max-width: $screen-lg) {
+    .detail {
+        padding: $padding-xs;
+    }
+
+    .detailLabel {
+        font-size: $font-xs;
+    }
+
+    .detailValue {
+        font-size: $font-xs;
+    }
+}

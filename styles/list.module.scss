@@ -1,0 +1,41 @@
+@use '@/styles/variables' as *;
+
+// =================== CLASSES ===================
+@import '@/styles/classes/hr';
+@import '@/styles/classes/list-container';
+@import '@/styles/classes/cards-container';
+
+.hr {
+    margin-top: auto;
+}
+
+.paginationContainer {
+    display: flex;
+    justify-content: center;
+    gap: $gap-sm;
+}
+
+@media (max-width: $screen-3xl) {
+    .skeletonContainer {
+        > div {
+            flex: 1 1 600px;
+        }
+    }
+}
+
+@media (max-width: $screen-2xl) {
+    .skeletonContainer {
+        > div {
+            flex: 1 1 400px;
+        }
+    }
+}
+
+@media (max-width: $screen-xl) {
+    .skeletonContainer {
+        > div {
+            height: 150px !important;
+            flex: 1 1 300px !important;
+        }
+    }
+}

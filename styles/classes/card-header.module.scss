@@ -1,0 +1,30 @@
+@use "@/styles/variables" as *;
+
+// ========================= CLASSES =========================
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: $font-lg;
+    color: $clr-purple;
+    margin-bottom: $margin-md;
+    text-transform: lowercase;
+    font-family: $font-modulus;
+    font-weight: bold;
+}
+
+// ========================= MEDIA QUERIES =========================
+
+@media (max-width: $screen-3xl) {
+    .cardHeader {
+        font-size: $font-md;
+    }
+}
+
+@media (max-width: $screen-lg) {
+    .cardHeader {
+        font-size: $font-sm;
+        margin-bottom: $margin-sm;
+    }
+}

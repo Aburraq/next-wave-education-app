@@ -1,0 +1,11 @@
+@use '@/styles/variables' as *;
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xs;
+}
+
+ul.cardBody {
+    list-style-type: none;
+}

@@ -1,0 +1,44 @@
+@use '@/styles/variables' as *;
+
+.cardContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: $clr-smoke;
+    box-shadow: $shadow-md-light;
+    border: 1px solid $clr-purple-medium;
+    border-radius: $rounded-sm;
+    padding: $padding-md;
+    transition: background-color 0.5s ease-in-out;
+    overflow: hidden;
+    flex: 1 1 450px;
+
+    &:hover {
+        background-color: $clr-success-lighter !important;
+    }
+}
+
+// ================== MEDIA QUERIES ==================
+
+@media (max-width: $screen-2xl) {
+    .cardContainer {
+        flex: 1 1 350px;
+    }
+}
+
+@media (max-width: $screen-xl) {
+    .cardContainer {
+        flex: 1 1 300px;
+    }
+}
+@media (max-width: $screen-lg) {
+    .cardContainer {
+        padding: $padding-sm;
+    }
+}
+
+@media (max-width: $screen-sm) {
+    .cardContainer {
+        flex: 1 1 100% !important;
+    }
+}

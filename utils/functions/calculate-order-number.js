@@ -1,0 +1,1 @@
+export const calculateOrderNumber = (page, size, index) => (page-1) * size + index + 1;

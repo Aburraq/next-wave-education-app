@@ -14,7 +14,7 @@ export const SkeletonLoader = ({ flex, height, width, isRing, rounded }) => {
             className={`${styles.skeleton} ${isRounded}`}
             style={skeletonStyles}
         >
-            {isRing || <LoaderRing text="..." />}
+            {isRing && <LoaderRing text="..." />}
         </div>
     );
 };

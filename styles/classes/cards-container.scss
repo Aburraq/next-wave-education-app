@@ -1,0 +1,7 @@
+@use '@/styles/variables' as *;
+
+.cardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap-sm;
+}
