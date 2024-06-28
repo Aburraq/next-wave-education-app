@@ -1,6 +1,8 @@
 'use server';
 
 import { auth } from '@/auth';
+import { errorObject } from '@/utils/functions/error-object';
+
 
 /**
  * Get all messages as a user with "ADMIN" | "MANAGER" | "ASSISTANTMANAGER" role

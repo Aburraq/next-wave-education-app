@@ -1,6 +1,7 @@
 'use server';
 
 import { auth } from '@/auth';
+import { errorObject } from '@/utils/functions/error-object';
 
 /**
  * Get all meetings as a user with "TEACHER" role
