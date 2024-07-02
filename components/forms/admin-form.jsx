@@ -8,14 +8,21 @@ import genderOptions from '@/data/options/gender-options.json';
 import { SubmitButton } from '@/components/common/submit-button';
 import { createAssistantManagerFormAction } from '@/actions/assistant-manager/create-assistant-manager-form.action';
 import styles from '@/styles/form.module.scss';
+import { createManagerFormAction } from '@/actions/manager/create-manager-form.action';
 
 export const AdminForm = ({ buttonTitle = 'Admin', type = 'admin' }) => {
-    let formAction =
-        type === 'admin'
-            ? createAdminFormAction
-            : createAssistantManagerFormAction;
+    let formAction;
+
+    if (type === 'admin') {
+        formAction = createAdminFormAction;
+    } else if (type === 'assistant-manager') {
+        formAction = createAssistantManagerFormAction;
+    } else if (type === 'manager') {
+        formAction = createManagerFormAction;
+    }
 
     const [state, action, pending] = useActionState(formAction);
+
 
     return (
         <form action={action} className={styles.form}>

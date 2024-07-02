@@ -1,0 +1,70 @@
+@use '@/styles/variables' as *;
+
+// =================== CLASSES ===================
+@import '@/styles/classes/card-container.module.scss';
+@import '@/styles/classes/date.module.scss';
+@import '@/styles/classes/order-number.module.scss';
+
+.deleteContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.term {
+    font-family: $font-modulus;
+    color: $clr-purple;
+    font-weight: bolder;
+    margin-bottom: $margin-md;
+}
+
+.item {
+    color: $clr-purple;
+    font-size: $font-md;
+
+    &:last-of-type {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: $gap-sm;
+
+        span {
+            &:last-child {
+                font-family: $font-modulus;
+                color: $clr-danger;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+@media (max-width: $screen-xl) {
+    .cardContainer {
+        flex: 1 1 300px;
+    }
+
+    .term {
+        font-size: $font-lg;
+    }
+
+    .item {
+        font-size: $font-sm;
+    }
+
+    .last {
+        font-size: $font-sm;
+    }
+}
+
+@media (max-width: $screen-lg) {
+    .term {
+        font-size: $font-md;
+    }
+
+    .item {
+        font-size: $font-xs;
+    }
+
+    .last {
+        font-size: $font-xs;
+    }
+}
