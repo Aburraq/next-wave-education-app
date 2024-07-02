@@ -3,7 +3,7 @@ import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5';
 import styles from '@/styles/components/common/pagination.module.scss';
 
 export const Pagination = ({ baseUrl, currentPage, size, totalPages }) => {
-    
+
     const previousPage = currentPage === 1 ? currentPage : currentPage - 1;
     const nextPage = currentPage === totalPages ? currentPage : currentPage + 1;
 
@@ -48,7 +48,6 @@ export const Pagination = ({ baseUrl, currentPage, size, totalPages }) => {
                 >
                     1
                 </Link>
-                <span className={styles.ellipsis}>...</span>
                 {Array.from(
                     { length: endPage - startPage + 1 },
                     (_, index) => startPage + index
@@ -64,7 +63,6 @@ export const Pagination = ({ baseUrl, currentPage, size, totalPages }) => {
                         {page}
                     </Link>
                 ))}
-                <span className={styles.ellipsis}>...</span>
                 <Link
                     className={`${styles.pageItem} ${
                         currentPage === totalPages ? styles.active : ''
