@@ -1,0 +1,9 @@
+@use '@/styles/variables' as *;
+
+// =================== CLASSES ===================
+
+.buttonsContainer {
+    display: flex;
+    align-items: center;
+    gap: $gap-xs;
+}

@@ -5,11 +5,17 @@ import { useActionState } from 'react';
 import { AlertText } from '@/components/common/alert-text';
 import adminFields from '@/data/form-fields/admin-fields.json';
 import genderOptions from '@/data/options/gender-options.json';
-import styles from '@/styles/form.module.scss';
 import { SubmitButton } from '@/components/common/submit-button';
+import { createAssistantManagerFormAction } from '@/actions/assistant-manager/create-assistant-manager-form.action';
+import styles from '@/styles/form.module.scss';
 
-export const AdminForm = () => {
-    const [state, action, pending] = useActionState(createAdminFormAction);
+export const AdminForm = ({ buttonTitle = 'Admin', type = 'admin' }) => {
+    let formAction =
+        type === 'admin'
+            ? createAdminFormAction
+            : createAssistantManagerFormAction;
+
+    const [state, action, pending] = useActionState(formAction);
 
     return (
         <form action={action} className={styles.form}>
@@ -57,7 +63,7 @@ export const AdminForm = () => {
             </div>
             <SubmitButton
                 pending={pending}
-                text="Create Admin"
+                text={`Create ${buttonTitle}`}
                 loadingText="Creating"
             />
         </form>

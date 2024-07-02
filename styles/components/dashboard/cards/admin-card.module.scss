@@ -1,11 +1,12 @@
 @use '@/styles/variables' as *;
 
-// ========================= CLASSES =========================
+// =================== CLASSES ===================
 @import '@/styles/classes/built-in.module.scss';
 @import '@/styles/classes/card-body.module.scss';
 @import '@/styles/classes/card-container.module.scss';
 @import '@/styles/classes/card-header.module.scss';
 @import '@/styles/classes/order-number.module.scss';
+@import '@/styles/classes/buttons-container.module.scss';
 
 .detail {
     display: flex;
@@ -25,7 +26,7 @@
     text-align: right;
 }
 
-// ========================= MEDIA QUERIES =========================
+// ================== MEDIA QUERIES ==================
 
 @media (max-width: $screen-3xl) {
     .detailLabel {

@@ -20,7 +20,7 @@
     "url": ""
   },
   "dependencies": {
-    "@halibal/colorful-log": "^0.0.1",
+    "@halibal/colorful-log": "^0.0.3",
     "chart.js": "^4.4.3",
     "moment": "^2.30.1",
     "next": "^15.0.0-rc.0",
