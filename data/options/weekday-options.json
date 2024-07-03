@@ -4,31 +4,31 @@
         "label": "Select A Day"
     },
     {
-        "value": "monday",
+        "value": "MONDAY",
         "label": "Monday"
     },
     {
-        "value": "tuesday",
+        "value": "TUESDAY",
         "label": "Tuesday"
     },
     {
-        "value": "wednesday",
+        "value": "WEDNESDAY",
         "label": "Wednesday"
     },
     {
-        "value": "thursday",
+        "value": "THURSDAY",
         "label": "Thursday"
     },
     {
-        "value": "friday",
+        "value": "FRIDAY",
         "label": "Friday"
     },
     {
-        "value": "saturday",
+        "value": "SATURDAY",
         "label": "Saturday"
     },
     {
-        "value": "sunday",
+        "value": "SUNDAY",
         "label": "Sunday"
     }
 ]

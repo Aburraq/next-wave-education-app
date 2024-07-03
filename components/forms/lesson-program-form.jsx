@@ -2,20 +2,16 @@
 
 import { useActionState } from 'react';
 import { AlertText } from '@/components/common/alert-text';
-import educationTermFields from '@/data/form-fields/education-term-fields.json';
 import { SubmitButton } from '@/components/common/submit-button';
-import { createEducationTermAction } from '@/actions/education-term/create-education-term-form.action';
-import { colorfulLog } from '@halibal/colorful-log';
-import styles from '@/styles/form.module.scss';
 import { extractEducationTerms } from '@/utils/functions/extract-education-terms';
+import weekdays from '@/data/options/weekday-options.json';
+import { MultiSelect } from '@/components/common/multi-select';
+import { extractLessons } from '@/utils/functions/extract-lessons';
+import { createLessonProgramAction } from '@/actions/lesson/create-lesson-program-form.action';
+import styles from '@/styles/form.module.scss';
 
 export const LessonProgramForm = ({ educationTermsData, lessonsData }) => {
-    const [state, action, pending] = useActionState(createEducationTermAction);
-
-    // console.log('lessonsData', lessonsData);
-    colorfulLog('red', ['educationTermsData', educationTermsData]);
-
-    colorfulLog('yellow', ['lessonsData', lessonsData]);
+    const [state, action, pending] = useActionState(createLessonProgramAction);
 
     const isEducationTermsData = educationTermsData?.status !== 'error';
 
@@ -28,8 +24,24 @@ export const LessonProgramForm = ({ educationTermsData, lessonsData }) => {
     return (
         <form action={action} className={styles.form}>
             <div className={styles.inputsContainer}>
-                {/* LESSONS MULTIPLE SELECTION */}
-                {/* EDUCATION TERMS */}
+                {/* =========== LESSONS MULTIPLE SELECTION =========== */}
+                <div className={styles.inputGroup}>
+                    <label htmlFor="lessonIdList" className={styles.label}>
+                        Lessons
+                    </label>
+                    <MultiSelect
+                        data={extractLessons(lessonsData)}
+                        name="lessonIdList"
+                        title="Lessons"
+                    />
+                    {state?.errors?.lessonIdList && (
+                        <AlertText
+                            type="error"
+                            text={state?.errors?.lessonIdList}
+                        />
+                    )}
+                </div>
+                {/* =========== EDUCATION TERMS =========== */}
                 <div className={styles.inputGroup}>
                     <label htmlFor="educationTermId" className={styles.label}>
                         Education Term
@@ -49,27 +61,58 @@ export const LessonProgramForm = ({ educationTermsData, lessonsData }) => {
                         <AlertText type="error" text={state?.errors?.term} />
                     )}
                 </div>
-                {educationTermFields.map((field, index) => (
-                    <div key={index} className={styles.inputGroup}>
-                        <label htmlFor={field.name} className={styles.label}>
-                            {field.label}
-                        </label>
-                        <input
-                            type={field.type}
-                            autoComplete={field.autoComplete}
-                            id={field.name}
-                            name={field.name}
-                            placeholder={field.placeholder}
-                            className={styles.input}
+                {/* =========== DAY =========== */}
+                <div className={styles.inputGroup}>
+                    <label htmlFor="day" className={styles.label}>
+                        Day
+                    </label>
+                    <select name="day" id="day" className={styles.select}>
+                        {weekdays.map((item, index) => (
+                            <option key={index} value={item.value}>
+                                {item.label}
+                            </option>
+                        ))}
+                    </select>
+                    {state?.errors?.term && (
+                        <AlertText type="error" text={state?.errors?.term} />
+                    )}
+                </div>
+                {/* =========== START TIME =========== */}
+                <div className={styles.inputGroup}>
+                    <label htmlFor="startTime" className={styles.label}>
+                        Starts At
+                    </label>
+                    <input
+                        type="time"
+                        id="startTime"
+                        name="startTime"
+                        className={styles.input}
+                    />
+                    {state?.errors?.startTime && (
+                        <AlertText
+                            type="error"
+                            text={state?.errors?.startTime[0]}
                         />
-                        {state?.errors?.[field.name] && (
-                            <AlertText
-                                type="error"
-                                text={state?.errors?.[field.name][0]}
-                            />
-                        )}
-                    </div>
-                ))}
+                    )}
+                </div>
+                {/* =========== END TIME =========== */}
+                <div className={styles.inputGroup}>
+                    <label htmlFor="stopTime" className={styles.label}>
+                        Ends At
+                    </label>
+                    <input
+                        type="time"
+                        id="stopTime"
+                        name="stopTime"
+                        className={styles.input}
+                    />
+                    {state?.errors?.stopTime && (
+                        <AlertText
+                            type="error"
+                            text={state?.errors?.stopTime[0]}
+                        />
+                    )}
+                </div>
                 {state?.errors?.common && (
                     <AlertText type="error" text={state?.errors?.common} />
                 )}

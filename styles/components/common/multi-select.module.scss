@@ -1,0 +1,68 @@
+@use '@/styles/variables' as *;
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    border: none;
+    border-radius: $rounded-sm;
+}
+
+.button {
+    background-color: $clr-purple-lighter;
+    min-height: 35px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: $padding-sm;
+    border: 1px solid $clr-purple-light;
+    border-radius: $rounded-xs;
+    cursor: pointer;
+    font-size: $font-md;
+}
+
+.panel {
+    position: absolute;
+    margin-top: $margin-sm;
+    background-color: $clr-white;
+    width: 100%;
+    font-size: $font-sm;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid $clr-purple-light;
+    border-radius: $rounded-sm;
+    overflow: hidden;
+}
+
+.inputGroup {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    gap: $gap-xs;
+    border: none;
+    flex: 1 1 300px;
+    transition: all 0.5s;
+    color: $clr-orange;
+
+    &:hover {
+        background-color: $clr-purple-light;
+        color: $clr-black;
+    }
+
+    input,
+    label {
+        display: inline-block;
+        cursor: pointer;
+        padding: $padding-sm;
+    }
+
+    input {
+        margin: $margin-sm;
+    }
+
+    label {
+        font-size: $font-xs;
+        flex: 1;
+    }
+}
