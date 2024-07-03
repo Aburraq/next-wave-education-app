@@ -5,6 +5,13 @@ import styles from '@/styles/components/dashboard/cards/lesson-program-card.modu
 export const LessonProgramCard = ({ authorized, data, orderNumber }) => {
     const itemName = `lesson program - ${data?.lessonProgramId}`;
 
+    const start = data?.startTime || '--:--';
+    const end = data?.stopTime || '--:--';
+
+    const startAndEndTime = `${start.split(':')[0]}:${start.split(':')[1]} - ${
+        end.split(':')[0]
+    }:${end.split(':')[1]}`;
+
     return (
         <div className={styles.cardContainer}>
             <div className={styles.cardHeader}>
@@ -26,9 +33,7 @@ export const LessonProgramCard = ({ authorized, data, orderNumber }) => {
                         <span>Day:</span>
                         <span>{data?.day}</span>
                     </div>
-                    <div className={styles.time}>
-                        {data?.startTime} - {data?.stopTime}
-                    </div>
+                    <div className={styles.time}>{startAndEndTime}</div>
                 </div>
                 <div className={styles.lessonList}>
                     {data?.lessonName &&
