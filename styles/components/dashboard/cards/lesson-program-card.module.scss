@@ -4,3 +4,130 @@
 @import '@/styles/classes/card-container.module.scss';
 @import '@/styles/classes/card-header.module.scss';
 @import '@/styles/classes/order-number.module.scss';
+
+.cardContainer {
+    flex: 1 1 480px;
+}
+
+.contentContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: $gap-lg;
+    color: $clr-purple;
+}
+
+.lessonName {
+    font-family: $font-modulus;
+    color: $clr-purple;
+    font-weight: bolder;
+    margin-bottom: $margin-md;
+}
+
+.title {
+    text-transform: capitalize;
+    font-family: $font-modulus;
+    font-size: $font-lg;
+    font-weight: bold;
+}
+
+.classInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: $gap-xs;
+}
+
+.day {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $clr-purple;
+    font-size: $font-md;
+    background-color: $clr-purple-lighter;
+    border-radius: $rounded-sm;
+    padding: $padding-xs $padding-sm;
+
+    span {
+        &:first-of-type {
+            font-weight: $text-bold;
+        }
+
+        &:last-of-type {
+            color: $clr-danger;
+        }
+    }
+}
+
+.time {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: $font-md;
+    background-color: $clr-purple-lighter;
+    border-radius: $rounded-sm;
+    padding: $padding-xs $padding-sm;
+    font-style: italic;
+}
+
+.lessonList {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xs;
+    list-style: none;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    background-color: $clr-purple-lighter;
+    border-radius: $rounded-sm;
+    padding: $padding-xs $padding-sm;
+
+    span {
+        &:first-of-type {
+            font-weight: $text-bold;
+        }
+
+        &:last-of-type {
+            color: $clr-danger;
+        }
+    }
+}
+
+@media screen and (max-width: $screen-2xl) {
+    .cardContainer {
+        flex: 1 0 350px;
+    }
+
+    .title {
+        font-size: $font-md;
+    }
+
+    .day,
+    .time {
+        font-size: $font-xs;
+    }
+
+    .item {
+        font-size: $font-2xs;
+    }
+}
+
+@media screen and (max-width: $screen-xl) {
+    .contentContainer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: $gap-sm;
+    }
+}
+
+@media (max-width: $screen-sm) {
+    .lessonName {
+        font-size: $font-lg;
+    }
+}
