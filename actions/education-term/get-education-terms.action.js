@@ -4,18 +4,18 @@ import { auth } from '@/auth';
 import { errorObject } from '@/utils/functions/error-object';
 
 /**
- * Get all lessons as a user with "ADMIN" | "ASSISTANTMANAGER" | "TEACHER" role
+ * Get all education terms as a user with "ADMIN" | "ASSISTANTMANAGER" role
  *
  * @returns {Promise<Response>} A promise that resolves to the Response object from the fetch API call
  *
  */
 
-export const getLessons = async () => {
+export const getEducationTerms = async () => {
     const session = await auth();
 
     try {
         const response = await fetch(
-            `${process.env.BASE_API_URL}/lessons/getAll`,
+            `${process.env.BASE_API_URL}/educationTerms/getAll`,
             {
                 headers: {
                     Authorization: `Bearer ${session?.accessToken}`
@@ -23,11 +23,12 @@ export const getLessons = async () => {
             }
         );
 
-        if (!response.ok) return errorObject('Failed to get the lessons');
+        if (!response.ok)
+            return errorObject('Failed to get the education terms');
 
         const data = await response.json();
         return data;
     } catch (error) {
-        return errorObject('There was an error getting the lessons');
+        return errorObject('There was an error getting the education terms');
     }
 };

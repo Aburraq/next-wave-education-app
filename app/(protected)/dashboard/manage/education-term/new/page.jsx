@@ -1,5 +1,5 @@
 import { PageTitle } from '@/components/common/page-title';
-import { EducationTermForm } from '@/components/forms/education-term-from';
+import { EducationTermForm } from '@/components/forms/education-term-form';
 
 export default function NewEducationTermPage() {
     return (
