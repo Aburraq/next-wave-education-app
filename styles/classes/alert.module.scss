@@ -1,0 +1,16 @@
+@use '@/styles/variables' as *;
+
+.danger {
+    color: $clr-danger !important;
+    background-color: $clr-danger-light !important;
+}
+
+.success {
+    color: $clr-success !important;
+    background-color: $clr-success-light !important;
+}
+
+.warning {
+    color: $clr-warning !important;
+    background-color: $clr-warning-light !important;
+}

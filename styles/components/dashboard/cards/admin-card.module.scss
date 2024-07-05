@@ -1,12 +1,27 @@
 @use '@/styles/variables' as *;
 
 // =================== CLASSES ===================
+@import '@/styles/classes/alert.module.scss';
 @import '@/styles/classes/built-in.module.scss';
 @import '@/styles/classes/card-body.module.scss';
 @import '@/styles/classes/card-container.module.scss';
 @import '@/styles/classes/card-header.module.scss';
 @import '@/styles/classes/order-number.module.scss';
 @import '@/styles/classes/buttons-container.module.scss';
+
+.teacher {
+    background-color: $clr-orange-lighter;
+    padding: 0;
+
+    .cardHeader {
+        background-color: $clr-smoke;
+        padding: $padding-sm $padding-md;
+    }
+
+    .cardBody {
+        padding: $padding-sm;
+    }
+}
 
 .detail {
     display: flex;

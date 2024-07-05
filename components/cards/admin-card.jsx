@@ -1,7 +1,7 @@
-import styles from '@/styles/components/dashboard/cards/admin-card.module.scss';
 import { DeleteButton } from '@/components/common/delete-button';
 import { deleteAdmin } from '@/actions/admin/delete-admin.action';
 import { EditButton } from '@/components/common/edit-button';
+import styles from '@/styles/components/dashboard/cards/admin-card.module.scss';
 
 export const AdminCard = ({
     data,
@@ -30,6 +30,14 @@ export const AdminCard = ({
                 value: `${data?.advisorTeacherName} ${data?.advisorTeacherSurname}`
             }
         );
+    } else if (type === 'teacher') {
+        dataToMap.push(
+            { label: 'Email:', value: data?.email },
+            {
+                label: 'Advisor Teacher',
+                value: data?.advisorTeacher ? 'Yes' : 'No'
+            }
+        );
     }
 
     const id = data?.id || data?.userId;
@@ -40,7 +48,7 @@ export const AdminCard = ({
         <div
             className={`${styles.cardContainer} ${
                 data.built_in ? styles.builtIn : ''
-            }`}
+            } ${styles[type]}`}
         >
             <div className={styles.cardHeader}>
                 @{data.username}
@@ -65,7 +73,16 @@ export const AdminCard = ({
             </div>
             <div className={styles.cardBody}>
                 {dataToMap.map((item, index) => (
-                    <div key={index} className={styles.detail}>
+                    <div
+                        key={index}
+                        className={`${styles.detail} ${
+                            type === 'teacher' && index === dataToMap.length - 1
+                                ? data?.advisorTeacher
+                                    ? styles.success
+                                    : styles.danger
+                                : ''
+                        }`}
+                    >
                         <span className={styles.detailLabel}>{item.label}</span>
                         <span className={styles.detailValue}>
                             {item.value || 'N/A'}
