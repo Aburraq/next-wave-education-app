@@ -16,7 +16,7 @@ export const getStudentById = async (id) => {
 
     try {
         const response = await fetch(
-            `${process.env.BASE_API_URL}/students/getStudentById/${id}`,
+            `${process.env.BASE_API_URL}/students/getStudentById?id=${id}`,
             {
                 headers: {
                     Authorization: `Bearer ${session?.accessToken}`
