@@ -1,0 +1,94 @@
+@use '@/styles/variables' as *;
+
+// =================== CLASSES ===================
+@import '@/styles/classes/card-body.module.scss';
+@import '@/styles/classes/card-container.module.scss';
+@import '@/styles/classes/card-header.module.scss';
+@import '@/styles/classes/order-number.module.scss';
+
+.cardContainer {
+    color: $clr-purple;
+}
+
+.cardHeader {
+    color: $clr-orange;
+    border-bottom: 1px solid $clr-purple;
+    padding-bottom: $padding-sm;
+}
+
+.cardBody {
+    flex: 1;
+    gap: $gap-sm;
+}
+
+.date {
+    font-size: $font-md;
+}
+
+.nameEmail {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: auto;
+    margin-bottom: 0;
+    gap: $gap-sm;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.email {
+    color: $clr-purple-dark;
+    font-style: italic;
+}
+
+.message {
+    font-family: $font-modulus;
+    font-size: $font-sm;
+    color: $clr-black;
+}
+
+@media (max-width: $screen-2xl) {
+    .date {
+        font-size: $font-sm;
+    }
+
+    .message {
+        font-size: $font-xs;
+    }
+
+    .nameEmail {
+        font-size: $font-sm;
+        gap: $gap-xs;
+    }
+
+    .name {
+        font-size: $font-sm;
+    }
+}
+
+@media (max-width: $screen-lg) {
+    .date {
+        font-size: $font-sm;
+    }
+
+    .message {
+        font-size: $font-xs;
+    }
+
+    .nameEmail {
+        font-size: $font-sm;
+        gap: $gap-xs;
+    }
+
+    .name {
+        font-size: $font-sm;
+    }
+}
+
+@media (max-width: $screen-sm) {
+    .nameEmail {
+        font-size: $font-xs;
+    }
+}

@@ -21,6 +21,17 @@ export const AdminCard = ({
         { label: 'Gender:', value: data?.gender }
     ];
 
+    if (type === 'student') {
+        dataToMap.push(
+            { label: 'Email:', value: data?.email },
+            { label: 'Student Number:', value: data?.studentNumber },
+            {
+                label: 'Advisor:',
+                value: `${data?.advisorTeacherName} ${data?.advisorTeacherSurname}`
+            }
+        );
+    }
+
     const id = data?.id || data?.userId;
 
     const fullName = `${data?.name} ${data?.surname}`;
