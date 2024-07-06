@@ -7,8 +7,9 @@ import { trimFormDataFields } from '@/utils/functions/trim-form-data-fields';
 import { errorObject } from '@/utils/functions/error-object';
 import { createTeacher } from '@/actions/teacher/create-teacher.action';
 import { createTeacherSchema } from '@/utils/validations/create-teacher-schema';
+import { colorfulLog } from '@halibal/colorful-log';
 
-export const createStudentFormAction = async (state, formData) => {
+export const createTeacherFormAction = async (state, formData) => {
     const trimmedData = trimFormDataFields(formData);
 
     const updatedData = {
@@ -19,6 +20,8 @@ export const createStudentFormAction = async (state, formData) => {
             : []
     };
 
+    colorfulLog('yellow', ['Updated Data', updatedData]);
+
     const validationResult = createTeacherSchema.safeParse(updatedData);
 
     if (!validationResult.success) {
@@ -27,13 +30,16 @@ export const createStudentFormAction = async (state, formData) => {
         };
     }
 
+    colorfulLog('blue', ['Validation Result', validationResult.data]);
+
     // remove the confirmPassword field from the payload
     // eslint-disable-next-line no-unused-vars
     const { confirmPassword, birthDay, ...rest } = validationResult.data;
 
     const payload = {
         ...rest,
-        birthDay: moment(birthDay).format('YYYY-MM-DD')
+        birthDay: moment(birthDay).format('YYYY-MM-DD'),
+        isAdvisorTeacher: updatedData.isAdvisorTeacher
     };
 
     let check;

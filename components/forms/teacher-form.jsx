@@ -5,12 +5,12 @@ import { AlertText } from '@/components/common/alert-text';
 import teacherField from '@/data/form-fields/teacher-fields.json';
 import genderOptions from '@/data/options/gender-options.json';
 import { SubmitButton } from '@/components/common/submit-button';
-import { createStudentFormAction } from '@/actions/student/create-student-form.action';
 import { MultiSelect } from '@/components/common/multi-select';
+import { createTeacherFormAction } from '@/actions/teacher/create-teacher-form.action';
 import styles from '@/styles/form.module.scss';
 
 export const TeacherForm = ({ data }) => {
-    const [state, action, pending] = useActionState(createStudentFormAction);
+    const [state, action, pending] = useActionState(createTeacherFormAction);
 
     return (
         <form action={action} className={styles.form}>
@@ -92,7 +92,7 @@ export const TeacherForm = ({ data }) => {
             </div>
             <SubmitButton
                 pending={pending}
-                text="Create Student"
+                text="Create Teacher"
                 loadingText="Creating"
             />
         </form>

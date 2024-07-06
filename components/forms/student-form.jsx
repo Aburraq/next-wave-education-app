@@ -5,8 +5,8 @@ import { AlertText } from '@/components/common/alert-text';
 import studentFields from '@/data/form-fields/student-fields.json';
 import genderOptions from '@/data/options/gender-options.json';
 import { SubmitButton } from '@/components/common/submit-button';
-import { createStudentFormAction } from '@/actions/student/create-student-form.action';
 import styles from '@/styles/form.module.scss';
+import { createStudentFormAction } from '@/actions/student/create-student-form.action';
 
 export const StudentForm = ({ data }) => {
     const [state, action, pending] = useActionState(createStudentFormAction);
