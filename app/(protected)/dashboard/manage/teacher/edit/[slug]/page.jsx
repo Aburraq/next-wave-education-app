@@ -1,19 +1,27 @@
-import { getAssistantManagerById } from '@/actions/assistant-manager/get-assistant-manager-by-id.action';
+import { getLessonPrograms } from '@/actions/lesson/get-lesson-programs.action';
+import { getTeacherById } from '@/actions/teacher/get-teacher-by-id.action';
 import { PageTitle } from '@/components/common/page-title';
-import { UpdateManagerForm } from '@/components/forms/update-manager-form';
-import { UpdateStudentForm } from '@/components/forms/update-student-form';
+import { UpdateTeacherForm } from '@/components/forms/update-teacher-form';
+import { extractLessonPrograms } from '@/utils/functions/extract-lesson-programs';
 
-export default async function EditAssistantManagerPage({ params }) {
+export default async function EditTeacherPage({ params }) {
     const { slug } = params;
 
-    const data = await getAssistantManagerById(slug);
+    const [teacherData, lessonProgramsData] = await Promise.all([
+        getTeacherById(slug),
+        getLessonPrograms()
+    ]);
+
+    const processedLessonProgramsData =
+        extractLessonPrograms(lessonProgramsData);
+
     return (
         <>
-            <PageTitle title={`Update Assistant Manager - ${slug}`} />
-            <UpdateStudentForm
-                data={data}
+            <PageTitle title={`Update Teacher - ${slug}`} />
+            <UpdateTeacherForm
+                data={teacherData}
+                lessonProgramsData={processedLessonProgramsData}
                 slug={slug}
-                type="assistant-manager"
             />
         </>
     );
