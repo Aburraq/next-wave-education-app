@@ -1,0 +1,51 @@
+@use '@/styles/variables' as *;
+
+// =================== CLASSES ===================
+@import '@/styles/classes/alert.module.scss';
+@import '@/styles/classes/card-container.module.scss';
+@import '@/styles/classes/card-header.module.scss';
+@import '@/styles/classes/order-number.module.scss';
+
+.cardContainer {
+    flex: 1 1 300px;
+    gap: $gap-sm;
+}
+
+.lessonName {
+    font-family: $font-modulus;
+    color: $clr-purple;
+    font-weight: bold;
+}
+
+.cardHeader {
+    h3 {
+        text-transform: capitalize;
+    }
+}
+
+.item {
+    color: $clr-purple;
+}
+
+.isCompulsory {
+    font-family: $font-modulus;
+    text-align: right;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    padding: $padding-xs $padding-sm;
+    border-radius: $rounded-xs;
+}
+
+@media (max-width: $screen-sm) {
+    .lessonName {
+        font-size: $font-lg;
+    }
+
+    .item {
+        font-size: $font-sm;
+    }
+
+    .isCompulsory {
+        font-size: $font-sm;
+    }
+}
