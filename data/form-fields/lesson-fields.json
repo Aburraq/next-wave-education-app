@@ -12,7 +12,7 @@
         "name": "creditScore",
         "type": "number",
         "label": "Credit Score",
-        "placeholder": "",
+        "placeholder": "Please enter credit score",
         "autoComplete": "off"
     },
     {

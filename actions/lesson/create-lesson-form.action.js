@@ -1,36 +1,57 @@
 'use server';
 
-import { auth } from '@/auth';
+import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
+import { trimFormDataFields } from '@/utils/functions/trim-form-data-fields';
+import { errorObject } from '@/utils/functions/error-object';
+import { createLessonSchema } from '@/utils/validations/create-lesson-schema';
+import { createLesson } from '@/actions/lesson/create-lesson.action';
 
-/**
- * Create an assistant manager as a user with "ADMIN" | "MANAGER" role
- *
- * @param {Object} payload - The payload for creating an admin manager
- * @param {boolean} payload.compulsory - The compulsory status of the lesson (true | false)
- * @param {number} payload.creditScore - The credit score of the lesson
- * @param {string} payload.lessonName - The name of the lesson
- *
- * @example
- * const payload = {
- *          "compulsory": true | false,
- *          "creditScore": number,
- *          "lessonName": string
- * }
- *
- * @returns {Promise<Response>} A promise that resolves to the Response object from the fetch API call
- */
+export const createLessonFormAction = async (state, formData) => {
+    const trimmedData = trimFormDataFields(formData);
 
-export const createLesson = async (payload) => {
-    const session = await auth();
+    const { compulsory, creditScore, lessonName } = trimmedData;
 
-    const response = await fetch(`${process.env.BASE_API_URL}/lessons/save`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${session?.accessToken}`
-        },
-        body: JSON.stringify(payload)
-    });
+    const dataToValidate = {
+        creditScore: +creditScore,
+        lessonName
+    };
 
-    return response;
+    const validationResult = createLessonSchema.safeParse(dataToValidate);
+
+    if (!validationResult.success) {
+        return {
+            errors: validationResult.error.flatten().fieldErrors
+        };
+    }
+
+    const payload = {
+        ...validationResult.data,
+        compulsory: compulsory === 'on' ? true : false
+    };
+
+    let check;
+
+    try {
+        const response = await createLesson(payload);
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            errorObject('There was an error creating the lesson!', data);
+        }
+
+        check = true;
+
+        return {
+            status: 'success',
+            message: 'Lesson created successfully!'
+        };
+    } catch (error) {
+        return errorObject('There was an error creating the lesson!');
+    } finally {
+        if (!check) return;
+        revalidatePath('/dashboard/manage/lesson');
+        redirect('/dashboard/manage/lesson');
+    }
 };
