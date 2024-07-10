@@ -1,0 +1,78 @@
+@use '@/styles/variables' as *;
+
+// ========================= CLASSES =========================
+@import '@/styles/classes/card-body.module.scss';
+@import '@/styles/classes/card-container.module.scss';
+@import '@/styles/classes/card-header.module.scss';
+@import '@/styles/classes/alert.module.scss';
+
+.cardHeader {
+    font-size: $font-xl;
+    align-self: center;
+    text-transform: capitalize;
+}
+
+.cardBody {
+    background-color: $clr-smoke;
+    border-radius: $rounded-xs;
+    padding: $padding-xs 0;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    padding: $padding-xs $padding-sm;
+
+    .label {
+        font-weight: $text-bold;
+    }
+
+    .value {
+        font-weight: $text-normal;
+    }
+}
+
+.cardItem {
+    background-color: $clr-black-lighter;
+    padding: $padding-xs $padding-sm;
+    border-radius: $rounded-xs;
+    font-size: $font-xs;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// ===================== MEDIA QUERIES =====================
+
+@media screen and (max-width: $screen-3xl) {
+    .info {
+        margin-bottom: $margin-xs;
+    }
+}
+
+@media screen and (max-width: $screen-2xl) {
+    .info {
+        .label {
+            font-size: $font-xs;
+        }
+
+        .value {
+            font-size: $font-xs;
+        }
+    }
+}
+
+@media screen and (max-width: $screen-md) {
+    .card {
+        padding: $padding-xs;
+    }
+    .info {
+        .label {
+            font-size: $font-2xs;
+        }
+
+        .value {
+            font-size: $font-2xs;
+        }
+    }
+}

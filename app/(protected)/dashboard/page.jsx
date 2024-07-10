@@ -1,9 +1,12 @@
 import { auth } from '@/auth';
 import { CreditScoreDistribution } from '@/components/dashboard/credit-score-distribution';
 import { DashboardBanner } from '@/components/dashboard/dashboard-banner';
+import { Grades } from '@/components/dashboard/grades';
+import { LessonPrograms } from '@/components/dashboard/lesson-programs';
+import { LessonTeachers } from '@/components/dashboard/lesson-teachers';
 import { Notifications } from '@/components/dashboard/notifications';
+import { PerformanceScatterPlot } from '@/components/dashboard/performance-scatter-plot';
 import { ShortcutLinks } from '@/components/dashboard/shortcut-links';
-import { StudentPerformanceScatterPlot } from '@/components/dashboard/student-performance-scatter-plot';
 import { TeacherDemographics } from '@/components/dashboard/teacher-demographics';
 import { TimeSeriesChart } from '@/components/dashboard/time-series-chart';
 import { UserInformation } from '@/components/dashboard/user-information';
@@ -34,15 +37,11 @@ export default async function DashboardPage() {
             <div className={styles.contentContainer}>
                 <div className={styles.contentOne}>
                     <div className={styles.flexItemOne}>
-                        {isStudent ? (
-                            <>{/* <GradeCards /> */}</>
-                        ) : (
-                            <CreditScoreDistribution />
-                        )}
+                        {isStudent ? <Grades /> : <CreditScoreDistribution />}
                     </div>
                     <div className={styles.flexItemTwo}>
                         {isStudent ? (
-                            <>{/* <LessonTeachers /> */}</>
+                            <LessonTeachers />
                         ) : (
                             <TeacherDemographics />
                         )}
@@ -51,16 +50,16 @@ export default async function DashboardPage() {
                 <div className={styles.contentTwo}>
                     <div className={styles.flexItemOne}>
                         {isStudent ? (
-                            <>{/* <LessonPrograms /> */}</>
+                            <LessonPrograms />
                         ) : (
-                             <TimeSeriesChart role={role}/> 
+                            <TimeSeriesChart role={role} />
                         )}
                     </div>
                     <div className={styles.flexItemTwo}>
                         {isStudent ? (
                             <>{/* <MeetingNotice /> */}</>
                         ) : (
-                             <StudentPerformanceScatterPlot /> 
+                            <PerformanceScatterPlot />
                         )}
                     </div>
                 </div>

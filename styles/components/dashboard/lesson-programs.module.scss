@@ -1,0 +1,28 @@
+@use '@/styles/variables' as *;
+
+// ========================= CLASSES =========================
+@import '@/styles/classes/cards-container.scss';
+@import '@/styles/classes/hr.scss';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-sm;
+    background-color: $clr-white;
+    padding: $padding-sm;
+    border-radius: $rounded-xl;
+    box-shadow: $shadow-xs;
+    border: 1px solid $clr-black-lighter;
+    height: 100%;
+}
+
+.cardsContainer {
+    height: 100%;
+}
+
+@media (max-width: $screen-2xl) {
+    .cardsContainer {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+}

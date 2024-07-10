@@ -1,6 +1,7 @@
 'use server';
 
 import { auth } from '@/auth';
+import { errorObject } from '@/utils/functions/error-object';
 
 /**
  * Get all student informations by page as a user with "ADMIN" role
