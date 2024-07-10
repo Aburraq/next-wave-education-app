@@ -79,6 +79,8 @@ export const StudentInformationCard = ({
 
     const fullName = `${data?.studentResponse?.name} ${data?.studentResponse?.surname}`;
 
+    type = type === "teacher" ? "student-information" : type;
+
     return (
         <div className={styles.cardContainer}>
             <div className={styles.cardHeader}>

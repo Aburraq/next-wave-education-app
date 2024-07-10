@@ -1,0 +1,24 @@
+import { getEducationTerms } from '@/actions/education-term/get-education-terms.action';
+import { getLessons } from '@/actions/lesson/get-lessons.action';
+import { getStudentsAsAdvisorTeacher } from '@/actions/student/get-students-as-advisor-teacher.action';
+import { PageTitle } from '@/components/common/page-title';
+import { UpdateStudentInformationForm } from '@/components/forms/update-student-information-form';
+
+export default async function NewStudentInformationPage() {
+    const [studentsData, lessonsData, educationTermsData] = await Promise.all(
+        getStudentsAsAdvisorTeacher(),
+        getLessons(),
+        getEducationTerms()
+    );
+
+    return (
+        <>
+            <PageTitle title="Create New Meeting" />
+            <UpdateStudentInformationForm // add  
+                studentsData={studentsData}
+                lessonsData={lessonsData}
+                educationTermsData={educationTermsData}
+            />
+        </>
+    );
+}
