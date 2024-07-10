@@ -58,13 +58,20 @@
     resize: none;
     min-height: 150px;
 }
+.customMessage {
+    font-size: $font-md;
+    color: $clr-danger;
+    font-weight: $text-bold;
+}
+// ========================= MEDIA QUERIES =========================
 @media (max-width: $screen-lg) {
     .formContainer {
         width: 100%;
     }
     .input,
     .label,
-    .select {
+    .select,
+    .customMessage {
         font-size: $font-sm;
     }
 }
@@ -74,7 +81,8 @@
     }
     .input,
     .label,
-    .select {
+    .select,
+    .customMessage {
         font-size: $font-xs;
     }
 }

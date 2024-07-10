@@ -7,7 +7,7 @@
  */
 
 export const extractStudentInformation = (data) => {
-    if (!data) return [];
+    if (!data || data?.status === "error") return [];
 
     return data.map((studentInformation) => ({
         value: studentInformation.userId || studentInformation.id,

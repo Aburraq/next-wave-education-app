@@ -1,15 +1,24 @@
-import { getManagerById } from '@/actions/manager/get-manager-by-id.action';
+import { getMeetingById } from '@/actions/meeting/get-meeting-by-id.action';
+import { getStudentsAsAdvisorTeacher } from '@/actions/student/get-students-as-advisor-teacher.action';
 import { PageTitle } from '@/components/common/page-title';
-import { UpdateManagerForm } from '@/components/forms/update-manager-form';
+import { UpdateMeetingForm } from '@/components/forms/update-meeting-form';
 
-export default async function EditManagerPage({ params }) {
+export default async function EditMeetingPage({ params }) {
     const { slug } = params;
 
-    const data = await getManagerById(slug);
+    const [data, studentsData] = await Promise.all([
+        getMeetingById(slug),
+        getStudentsAsAdvisorTeacher()
+    ]);
+
     return (
         <>
-            <PageTitle title={`Update Manager - ${slug}`} />
-            <UpdateManagerForm data={data} slug={slug} />
+            <PageTitle title={`Update Meeting - ${slug}`} />
+            <UpdateMeetingForm
+                data={data}
+                slug={slug}
+                studentsData={studentsData}
+            />
         </>
     );
 }
