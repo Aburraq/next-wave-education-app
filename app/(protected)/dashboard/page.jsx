@@ -4,6 +4,7 @@ import { DashboardBanner } from '@/components/dashboard/dashboard-banner';
 import { Grades } from '@/components/dashboard/grades';
 import { LessonPrograms } from '@/components/dashboard/lesson-programs';
 import { LessonTeachers } from '@/components/dashboard/lesson-teachers';
+import { MeetingNotice } from '@/components/dashboard/meeting-notice';
 import { Notifications } from '@/components/dashboard/notifications';
 import { PerformanceScatterPlot } from '@/components/dashboard/performance-scatter-plot';
 import { ShortcutLinks } from '@/components/dashboard/shortcut-links';
@@ -57,7 +58,7 @@ export default async function DashboardPage() {
                     </div>
                     <div className={styles.flexItemTwo}>
                         {isStudent ? (
-                            <>{/* <MeetingNotice /> */}</>
+                            <MeetingNotice />
                         ) : (
                             <PerformanceScatterPlot />
                         )}

@@ -6,7 +6,7 @@ import styles from '@/styles/components/dashboard/grades.module.scss';
 
 export const LessonTeachers = () => {
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container} ${styles.lessonsTeacher}`}>
             <LinkTitle href="/dashboard/lessons" title="Teachers" />
             <hr className={styles.hr} />
             <div className={styles.contentContainer} style={{ gap: '4px' }}>

@@ -1,6 +1,7 @@
 @use '@/styles/variables' as *;
 
 // ========================= CLASSES =========================
+@import '@/styles/classes/cards-container.scss';
 @import '@/styles/classes/hr.scss';
 
 .container {
@@ -12,19 +13,21 @@
     border-radius: $rounded-xl;
     box-shadow: $shadow-xs;
     border: 1px solid $clr-black-lighter;
-    height: 100%;
+    min-height: 100%;
 }
 
-.cardsContainer {
+.contentContainer {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: $gap-xs;
 }
 
 // ========================= MEDIA QUERIES =========================
 
 @media (max-width: $screen-md) {
-    .cardsContainer {
+    .contentContainer {
+        flex: 1;
+        align-self: stretch;
         grid-template-columns: repeat(1, 1fr);
     }
 }

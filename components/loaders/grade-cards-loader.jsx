@@ -9,5 +9,7 @@ export const GradeCardsLoader = async () => {
 
     if (!isDataAvailable) return <NoDataAvailable />;
 
-    return <GradeCard />;
+    return data?.content.map((item, index) => (
+        <GradeCard key={index} data={item} />
+    ));
 };

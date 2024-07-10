@@ -6,32 +6,40 @@
 .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: $gap-sm;
     background-color: $clr-white;
     padding: $padding-sm;
     border-radius: $rounded-xl;
     box-shadow: $shadow-xs;
     border: 1px solid $clr-black-lighter;
-    min-height: 365px;
+    min-height: 100%;
 }
 
-.contentContainer {
-    display: flex;
-    justify-content: center;
+.container.lessonsTeacher {
     align-items: center;
-    width: 100%;
-    height: 100%;
-    flex: 1;
 
-    > canvas {
-        max-width: 100% !important;
-        max-height: 100% !important;
+    .contentContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        flex: 1;
     }
 }
 
-@media (max-width: $screen-sm) {
-    .container {
-        min-height: 315px;
+.contentContainer {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: $gap-xs;
+}
+
+// ========================= MEDIA QUERIES =========================
+
+@media (max-width: $screen-md) {
+    .contentContainer {
+        flex: 1;
+        align-self: stretch;
+        grid-template-columns: repeat(1, 1fr);
     }
 }

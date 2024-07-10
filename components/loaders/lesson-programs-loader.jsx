@@ -13,7 +13,7 @@ export const LessonProgramsLoader = async () => {
     if (!isDataAvailable) return <NoDataAvailable />;
 
     return data
-        .splice(0, 2)
+        .splice(0, 4)
         .map((lessonProgram, index) => (
             <LessonProgramCard key={index} data={lessonProgram} />
         ));
