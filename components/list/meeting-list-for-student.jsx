@@ -2,7 +2,7 @@ import { colorfulLog } from '@halibal/colorful-log';
 import { NoDataAvailable } from '@/components/common/no-data-available';
 import styles from '@/styles/list.module.scss';
 import { getMeetingsAsStudent } from '@/actions/student/get-meetings-as-student.action';
-import { LessonProgramCard } from '../cards/lesson-program-card';
+import { MeetingCard } from '@/components/cards/meeting-card';
 
 export const MeetingListForStudent = async () => {
     const data = await getMeetingsAsStudent();
@@ -20,7 +20,7 @@ export const MeetingListForStudent = async () => {
             <div className={styles.cardsContainer}>
                 {isDataAvailable ? (
                     data.map((item, index) => (
-                        <LessonProgramCard
+                        <MeetingCard
                             key={index}
                             data={item}
                             orderNumber={calculateOrderNumber(1, 500, index)}

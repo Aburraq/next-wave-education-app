@@ -16,7 +16,7 @@ import { errorObject } from '@/utils/functions/error-object';
 
 export const getMeetingsByPage = async ({
     page = 0,
-    size = 20,
+    size = 6,
     sort = 'date',
     type = 'desc'
 }) => {
