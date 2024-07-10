@@ -1,0 +1,30 @@
+@use '@/styles/variables' as *;
+
+// ===================== CLASSES =====================
+@import '@/styles/classes/cards-container.scss';
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: $gap-md;
+}
+
+.inputGroup {
+    width: 100%;
+}
+
+.input {
+    display: none;
+
+    &:checked + .label {
+        > div {
+            background-color: $clr-warning-light !important;
+        }
+    }
+}
+
+.label {
+    cursor: pointer;
+}

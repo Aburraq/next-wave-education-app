@@ -1,0 +1,49 @@
+@use '@/styles/variables' as *;
+
+// =================== CLASSES ===================
+@import '@/styles/classes/card-container.module.scss';
+@import '@/styles/classes/card-body.module.scss';
+@import '@/styles/classes/card-header.module.scss';
+@import '@/styles/classes/date.module.scss';
+@import '@/styles/classes/order-number.module.scss';
+
+.cardContainer {
+    flex: 1;
+    max-width: 600px;
+}
+
+.cardBody {
+    gap: $gap-sm;
+}
+
+.cardHeader {
+    text-transform: capitalize;
+}
+
+.itemsContainer {
+    display: flex;
+    gap: $gap-md;
+    justify-content: space-between;
+    padding: $padding-xs;
+}
+
+.cardItem {
+    color: $clr-purple;
+    font-size: $font-sm;
+    font-weight: $text-normal;
+    background-color: $clr-purple-lighter;
+    border-radius: $rounded-xs;
+    padding: $padding-xs $padding-md;
+}
+
+.date,
+.time {
+    text-align: right;
+    font-style: italic;
+}
+
+@media (max-width: $screen-lg) {
+    .cardItem {
+        font-size: $font-xs;
+    }
+}

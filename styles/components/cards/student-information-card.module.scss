@@ -1,0 +1,94 @@
+@use '@/styles/variables' as *;
+
+// =================== CLASSES ===================
+@import '@/styles/classes/alert.module.scss';
+@import '@/styles/classes/buttons-container.module.scss';
+@import '@/styles/classes/card-body.module.scss';
+@import '@/styles/classes/card-container.module.scss';
+@import '@/styles/classes/card-header.module.scss';
+@import '@/styles/classes/order-number.module.scss';
+
+.cardContainer {
+    flex: 1 1 600px;
+}
+
+.cardItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $gap-xs;
+    font-size: $font-md;
+    background-color: $clr-white;
+    padding: $padding-xs $padding-sm;
+    border-radius: $rounded-sm;
+
+    span {
+        &:first-child {
+            font-weight: bold;
+        }
+    }
+}
+
+.email {
+    span {
+        &:last-child {
+            font-style: italic;
+            color: $clr-orange;
+        }
+    }
+}
+
+.lessonName {
+    color: $clr-purple;
+
+    span {
+        &:last-child {
+            font-weight: bold;
+        }
+    }
+}
+
+// ========================= MEDIA QUERIES =========================
+
+@media (max-width: $screen-xl) {
+    .cardItem {
+        font-size: $font-sm;
+    }
+}
+
+@media (max-width: $screen-lg) {
+    .cardItem {
+        font-size: $font-xs;
+    }
+
+    .content {
+        padding: $padding-sm;
+    }
+
+    .email {
+        span {
+            &:last-child {
+                font-size: $font-sm;
+            }
+        }
+    }
+}
+
+@media (max-width: $screen-md) {
+    .cardItem {
+        font-size: $font-xs;
+        flex-wrap: wrap;
+    }
+
+    .content {
+        padding: $padding-sm;
+    }
+
+    .email {
+        span {
+            &:last-child {
+                font-size: $font-xs;
+            }
+        }
+    }
+}

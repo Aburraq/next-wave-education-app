@@ -1,0 +1,35 @@
+import { colorfulLog } from '@halibal/colorful-log';
+import { NoDataAvailable } from '@/components/common/no-data-available';
+import styles from '@/styles/list.module.scss';
+import { getMeetingsAsStudent } from '@/actions/student/get-meetings-as-student.action';
+import { LessonProgramCard } from '../cards/lesson-program-card';
+
+export const MeetingListForStudent = async () => {
+    const data = await getMeetingsAsStudent();
+
+    colorfulLog('yellow', ['DATA: ', data]);
+
+    const isDataAvailable =
+        data &&
+        data.status !== 'error' &&
+        Array.isArray(data) &&
+        data?.length > 0;
+
+    return (
+        <div className={styles.container}>
+            <div className={styles.cardsContainer}>
+                {isDataAvailable ? (
+                    data.map((item, index) => (
+                        <LessonProgramCard
+                            key={index}
+                            data={item}
+                            orderNumber={calculateOrderNumber(1, 500, index)}
+                        />
+                    ))
+                ) : (
+                    <NoDataAvailable />
+                )}
+            </div>
+        </div>
+    );
+};
