@@ -7,7 +7,6 @@ import { trimFormDataFields } from '@/utils/functions/trim-form-data-fields';
 import { errorObject } from '@/utils/functions/error-object';
 import { createTeacher } from '@/actions/teacher/create-teacher.action';
 import { createTeacherSchema } from '@/utils/validations/create-teacher-schema';
-import { colorfulLog } from '@halibal/colorful-log';
 
 export const createTeacherFormAction = async (state, formData) => {
     const trimmedData = trimFormDataFields(formData);
@@ -20,7 +19,6 @@ export const createTeacherFormAction = async (state, formData) => {
             : []
     };
 
-    colorfulLog('yellow', ['Updated Data', updatedData]);
 
     const validationResult = createTeacherSchema.safeParse(updatedData);
 
@@ -30,7 +28,6 @@ export const createTeacherFormAction = async (state, formData) => {
         };
     }
 
-    colorfulLog('blue', ['Validation Result', validationResult.data]);
 
     // remove the confirmPassword field from the payload
     // eslint-disable-next-line no-unused-vars

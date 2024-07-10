@@ -6,12 +6,10 @@ import { SubmitButton } from '@/components/common/submit-button';
 import { chooseLessonProgramAction } from '@/actions/lesson/choose-lesson-program-form.action';
 import { LessonProgramCard } from '@/components/cards/lesson-program-card';
 import styles from '@/styles/components/dashboard/choose-lesson-form.module.scss';
-import { colorfulLog } from '@halibal/colorful-log';
 
 export const ChooseLessonForm = ({ data }) => {
     const [state, action, pending] = useActionState(chooseLessonProgramAction);
 
-    colorfulLog('green', ['State: ', state]);
 
     return (
         <form action={action} className={styles.container}>

@@ -3,7 +3,7 @@
 import { auth } from '@/auth';
 
 /**
- * Create a student information as a user with "TEACHER" role
+ * Update a student information as a user with "TEACHER" role
  *
  * @param {Object} payload - The payload for creating an admin
  * @param {Number} payload.absentee - The absentee of the student
@@ -13,6 +13,7 @@ import { auth } from '@/auth';
  * @param {Number} payload.lessonId - The lesson id of the student
  * @param {Number} payload.midtermExam - The midterm exam of the student
  * @param {Number} payload.studentId - The student id of the student
+ * @param {Number} id - The id of the student information
  *
  * @example
  * const payload = {
@@ -27,13 +28,13 @@ import { auth } from '@/auth';
  *
  * @returns {Promise<Response>} A promise that resolves to the Response object from the fetch API call
  */
-export const createStudentInformation = async (payload) => {
+export const updateStudentInformation = async (payload, id) => {
     const session = await auth();
 
     const response = await fetch(
-        `${process.env.BASE_API_URL}/studentInfo/save`,
+        `${process.env.BASE_API_URL}/studentInfo/update/${id}`,
         {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${session?.accessToken}`

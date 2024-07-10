@@ -23,6 +23,7 @@ export default async function EditStudentInformationPage({ params }) {
                 data={data}
                 educationTermsData={educationTermsData}
                 lessonsData={lessonsData}
+                slug={slug}
                 studentsData={studentsData}
             />
         </>

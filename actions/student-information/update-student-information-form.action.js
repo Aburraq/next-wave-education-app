@@ -1,15 +1,16 @@
 'use server';
 
-import moment from 'moment';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { trimFormDataFields } from '@/utils/functions/trim-form-data-fields';
 import { errorObject } from '@/utils/functions/error-object';
-import { createStudentInformation } from '@/actions/student-information/create-student-information.action';
 import { createStudentInformationSchema } from '@/utils/validations/create-student-information-schema';
+import { updateStudentInformation } from '@/actions/student-information/update-student-information.action';
 
-export const createStudentInformationFormAction = async (state, formData) => {
+export const updateStudentInformationFormAction = async (state, formData) => {
     const trimmedData = trimFormDataFields(formData);
+
+    const { id } = trimmedData;
 
     const dataToValidate = {
         ...trimmedData,
@@ -30,13 +31,16 @@ export const createStudentInformationFormAction = async (state, formData) => {
     let check;
 
     try {
-        const response = await createStudentInformation(validationResult.data);
+        const response = await updateStudentInformation(
+            validationResult.data,
+            id
+        );
 
         const data = await response.json();
 
         if (!response.ok)
             return errorObject(
-                'There was an error creating the student information!',
+                'There was an error updating the student information!',
                 data
             );
 
@@ -44,11 +48,11 @@ export const createStudentInformationFormAction = async (state, formData) => {
 
         return {
             status: 'success',
-            message: 'Student information created successfully!'
+            message: 'Student information updated successfully!'
         };
     } catch (error) {
         return errorObject(
-            'There was an error creating the student information!'
+            'There was an error updating the student information!'
         );
     } finally {
         if (!check) return;

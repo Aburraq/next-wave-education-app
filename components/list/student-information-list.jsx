@@ -3,7 +3,6 @@ import { calculateOrderNumber } from '@/utils/functions/calculate-order-number';
 import { Pagination } from '@/components/common/pagination';
 import { StudentInformationCard } from '@/components/cards/student-information-card';
 import { getStudentInformationByPageAsTeacher } from '@/actions/student-information/get-student-information-by-page-as-teacher.action';
-import { colorfulLog } from '@halibal/colorful-log';
 import { deleteStudentInformation } from '@/actions/student-information/delete-student-information.action';
 import styles from '@/styles/list.module.scss';
 
@@ -13,7 +12,6 @@ export const StudentInformationList = async ({ page, size }) => {
         size
     });
 
-    colorfulLog('blue', ['DATA: ', data]);
 
     const isDataAvailable =
         data &&

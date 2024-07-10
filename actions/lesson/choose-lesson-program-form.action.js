@@ -5,7 +5,6 @@ import { redirect } from 'next/navigation';
 import { errorObject } from '@/utils/functions/error-object';
 import { chooseLessonProgramSchema } from '@/utils/validations/choose-lesson-program-schema';
 import { chooseLessonProgram } from '@/actions/lesson/choose-lesson-program.action';
-import { colorfulLog } from '@halibal/colorful-log';
 
 export const chooseLessonProgramAction = async (state, formData) => {
     const dataToValidate = {
@@ -28,12 +27,7 @@ export const chooseLessonProgramAction = async (state, formData) => {
     try {
         const response = await chooseLessonProgram(validationResult.data);
 
-        console.log(response);
-        console.log(response.ok);
-
         const data = await response.json();
-
-        colorfulLog('green', ['Data: ', data]);
 
         if (!response.ok)
             return errorObject(

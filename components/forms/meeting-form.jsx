@@ -6,14 +6,12 @@ import meetingFields from '@/data/form-fields/meeting-fields.json';
 import { SubmitButton } from '@/components/common/submit-button';
 import { createMeetingFormAction } from '@/actions/meeting/create-meeting-form.action';
 import { MultiSelect } from '@/components/common/multi-select';
-import { colorfulLog } from '@halibal/colorful-log';
 import { extractStudentInformation } from '@/utils/functions/extract-student-information';
 import styles from '@/styles/form.module.scss';
 
 export const MeetingForm = ({ data }) => {
     const [state, action, pending] = useActionState(createMeetingFormAction);
 
-    colorfulLog('purple', ['Students Data: ', data]);
 
     return (
         <form action={action} className={styles.form}>

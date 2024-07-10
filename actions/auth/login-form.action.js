@@ -4,13 +4,11 @@ import { signIn } from '@/auth';
 import { DEFAULT_REDIRECT_PATH } from '@/routes';
 import { trimFormDataFields } from '@/utils/functions/trim-form-data-fields';
 import { loginSchema } from '@/utils/validations/login-schema';
-import { colorfulLog } from '@halibal/colorful-log';
 import { AuthError } from 'next-auth';
 
 export const loginFormAction = async (state, formData) => {
     const trimmedData = trimFormDataFields(formData);
     const validationResult = loginSchema.safeParse(trimmedData);
-    colorfulLog('purple', ['validationResult: ', validationResult]);
 
     if (!validationResult.success) {
         return {

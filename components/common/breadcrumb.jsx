@@ -1,6 +1,5 @@
 'use client';
 
-import { colorfulLog } from '@halibal/colorful-log';
 import Link from 'next/link';
 import { useSelectedLayoutSegments } from 'next/navigation';
 import styles from '@/styles/components/common/breadcrumb.module.scss';
@@ -8,7 +7,6 @@ import styles from '@/styles/components/common/breadcrumb.module.scss';
 export const Breadcrumb = () => {
     const segments = useSelectedLayoutSegments();
 
-    colorfulLog('blue', ['Segments: ', segments]);
 
 
     const breadcrumbItems = segments.reduce((acc, segment, index, arr) => {

@@ -1,4 +1,3 @@
-import { colorfulLog } from '@halibal/colorful-log';
 import { NoDataAvailable } from '@/components/common/no-data-available';
 import styles from '@/styles/list.module.scss';
 import { getMeetingsAsStudent } from '@/actions/student/get-meetings-as-student.action';
@@ -7,7 +6,6 @@ import { MeetingCard } from '@/components/cards/meeting-card';
 export const MeetingListForStudent = async () => {
     const data = await getMeetingsAsStudent();
 
-    colorfulLog('yellow', ['DATA: ', data]);
 
     const isDataAvailable =
         data &&
