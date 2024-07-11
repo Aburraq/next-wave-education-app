@@ -1,6 +1,6 @@
 import { deleteLessonProgram } from '@/actions/lesson/delete-lesson-program.action';
 import { DeleteButton } from '@/components/common/delete-button';
-import styles from '@/styles/components/dashboard/cards/lesson-program-card.module.scss';
+import styles from '@/styles/components/cards/lesson-program-card.module.scss';
 
 export const LessonProgramCard = ({ authorized, data, orderNumber }) => {
     const itemName = `lesson program - ${data?.lessonProgramId}`;

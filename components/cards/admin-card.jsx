@@ -1,7 +1,7 @@
 import { DeleteButton } from '@/components/common/delete-button';
 import { deleteAdmin } from '@/actions/admin/delete-admin.action';
 import { EditButton } from '@/components/common/edit-button';
-import styles from '@/styles/components/dashboard/cards/admin-card.module.scss';
+import styles from '@/styles/components/cards/admin-card.module.scss';
 
 export const AdminCard = ({
     data,

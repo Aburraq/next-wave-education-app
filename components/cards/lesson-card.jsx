@@ -1,5 +1,5 @@
 import { DeleteButton } from '@/components/common/delete-button';
-import styles from '@/styles/components/dashboard/cards/lesson-card.module.scss';
+import styles from '@/styles/components/cards/lesson-card.module.scss';
 
 export const LessonCard = ({ data, deleteAction, orderNumber }) => {
     const isCompulsory = data?.compulsory ? styles.danger : styles.warning;

@@ -1,4 +1,4 @@
-import styles from '@/styles/components/dashboard/cards/message-card.module.scss';
+import styles from '@/styles/components/cards/message-card.module.scss';
 
 export const MessageCard = ({ data, orderNumber }) => {
     return (

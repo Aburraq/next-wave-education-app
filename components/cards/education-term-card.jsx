@@ -2,7 +2,7 @@ import { compareDateWithToday } from '@/utils/functions/compare-date-with-today'
 import { DeleteButton } from '@/components/common/delete-button';
 import { deleteEducationTerm } from '@/actions/education-term/delete-education-term.action';
 import moment from 'moment';
-import styles from '@/styles/components/dashboard/cards/education-term-card.module.scss';
+import styles from '@/styles/components/cards/education-term-card.module.scss';
 
 export const EducationTermCard = ({ authorized, data, orderNumber }) => {
     const dateTimeComparison = compareDateWithToday(data.lastRegistrationDate);
