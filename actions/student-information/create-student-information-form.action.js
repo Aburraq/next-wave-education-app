@@ -1,6 +1,5 @@
 'use server';
 
-import moment from 'moment';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { trimFormDataFields } from '@/utils/functions/trim-form-data-fields';
@@ -33,6 +32,7 @@ export const createStudentInformationFormAction = async (state, formData) => {
         const response = await createStudentInformation(validationResult.data);
 
         const data = await response.json();
+
 
         if (!response.ok)
             return errorObject(

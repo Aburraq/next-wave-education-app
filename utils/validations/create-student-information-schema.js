@@ -14,7 +14,7 @@ export const createStudentInformationSchema = z.object({
         .lt(100, { message: 'Final exam cannot be more than 100' }),
     infoNote: z
         .string()
-        .min(1, { message: 'Info note cannot be empty' })
+        .min(10, { message: 'Info note must be explanatory' })
         .max(255, { message: 'Info note cannot be more than 255 characters' }),
     lessonId: z.string().min(1, { message: 'Lesson id cannot be empty' }),
     midtermExam: z

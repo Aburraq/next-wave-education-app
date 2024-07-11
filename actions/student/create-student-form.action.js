@@ -5,21 +5,12 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { trimFormDataFields } from '@/utils/functions/trim-form-data-fields';
 import { errorObject } from '@/utils/functions/error-object';
-import { createTeacher } from '@/actions/teacher/create-teacher.action';
-import { createTeacherSchema } from '@/utils/validations/create-teacher-schema';
+import { createStudentSchema } from '@/utils/validations/create-student-schema';
+import { createStudent } from '@/actions/student/create-student.action';
 
 export const createStudentFormAction = async (state, formData) => {
     const trimmedData = trimFormDataFields(formData);
-
-    const updatedData = {
-        ...trimmedData,
-        isAdvisorTeacher: trimmedData.isAdvisorTeacher === 'on' ? true : false,
-        lessonsIdList: trimmedData.lessonsIdList
-            ? trimmedData.lessonsIdList.split(',')
-            : []
-    };
-
-    const validationResult = createTeacherSchema.safeParse(updatedData);
+    const validationResult = createStudentSchema.safeParse(trimmedData);
 
     if (!validationResult.success) {
         return {
@@ -39,25 +30,27 @@ export const createStudentFormAction = async (state, formData) => {
     let check;
 
     try {
-        const response = await createTeacher(payload);
+        const response = await createStudent(payload);
 
         const data = await response.json();
 
-        if (!response.ok) {
-            errorObject('There was an error creating the teacher!', data);
-        }
+        if (!response.ok)
+            return errorObject(
+                'There was an error creating the student!',
+                data
+            );
 
         check = true;
 
         return {
             status: 'success',
-            message: 'Teacher created successfully!'
+            message: 'Student created successfully!'
         };
     } catch (error) {
-        return errorObject('There was an error creating the teacher!');
+        return errorObject('There was an error creating the student!');
     } finally {
         if (!check) return;
-        revalidatePath('/dashboard/manage/teacher');
-        redirect('/dashboard/manage/teacher');
+        revalidatePath('/dashboard/manage/student');
+        redirect('/dashboard/manage/student');
     }
 };
