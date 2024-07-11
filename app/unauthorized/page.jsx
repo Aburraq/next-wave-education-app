@@ -22,10 +22,10 @@ export default function UnauthorizedPage() {
                 </p>
                 {session?.user?.role &&
                     session?.user?.role.toLocaleLowerCase() === 'admin' && (
-                        <p className={styles.description}>
+                    <p className={styles.description}>
                             For even the very authorized cannot see all pages.
-                        </p>
-                    )}
+                    </p>
+                )}
             </div>
             <Image
                 src={Gandalf}

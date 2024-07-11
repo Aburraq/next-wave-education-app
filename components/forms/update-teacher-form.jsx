@@ -89,13 +89,13 @@ export const UpdateTeacherForm = ({ data, lessonProgramsData, slug }) => {
                                 className={styles.input}
                                 {...(field.type === 'checkbox'
                                     ? {
-                                          defaultChecked:
+                                        defaultChecked:
                                               data?.object?.isAdvisor
-                                      }
+                                    }
                                     : {
-                                          defaultValue:
+                                        defaultValue:
                                               data?.object?.[field.name]
-                                      })}
+                                    })}
                             />
                             {state?.errors?.[field.name] && (
                                 <AlertText
