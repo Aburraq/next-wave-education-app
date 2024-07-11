@@ -9,8 +9,10 @@ export default function LessonsPage() {
         <>
             <PageTitle title="Lessons" />
             <div className={styles.container}>
-                <Suspense fallback={<ListSkeleton flex='1 1 600px' height='170px' />}>
-                <LessonListForStudent />
+                <Suspense
+                    fallback={<ListSkeleton flex="1 1 600px" height="170px" />}
+                >
+                    <LessonListForStudent />
                 </Suspense>
             </div>
         </>

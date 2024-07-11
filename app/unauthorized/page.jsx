@@ -1,10 +1,9 @@
 import styles from '@/styles/pages/unauthorized-page.module.scss';
 import Image from 'next/image';
-import Gandalf from "@/public/assets/images/unauthorized.png"
+import Gandalf from '@/public/assets/images/unauthorized.png';
 import Link from 'next/link';
 
 export default function UnauthorizedPage() {
-
     const session = {
         user: {
             role: 'admin'
@@ -28,8 +27,19 @@ export default function UnauthorizedPage() {
                         </p>
                     )}
             </div>
-            <Image src={Gandalf} alt='Gandalf cannot allow us to pass' title='You shall not pass' className={styles.image}/>
-            <Link href={"/dashboard"} title='Fly back to safety!' className={styles.back}>Fly Back to Safety!</Link>
+            <Image
+                src={Gandalf}
+                alt="Gandalf cannot allow us to pass"
+                title="You shall not pass"
+                className={styles.image}
+            />
+            <Link
+                href={'/dashboard'}
+                title="Fly back to safety!"
+                className={styles.back}
+            >
+                Fly Back to Safety!
+            </Link>
         </div>
     );
 }
